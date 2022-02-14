@@ -40,7 +40,7 @@ var data = await FlutterBarcodeScanner.scanBarcode('#000000', 'Cancel', true, Sc
 }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext _) {
 
     var code;
       scan().then((value) {
@@ -96,7 +96,7 @@ var data = await FlutterBarcodeScanner.scanBarcode('#000000', 'Cancel', true, Sc
             
             onPressed: (){
 
-               print(code.toString() + date.toString() + quantcontroller.text);
+               
               BlocProvider.of<ProduitBloc>(context).add(ProduitEvent.add(
                 ProduitState( codebarre: code.toString() , dateheur: date.toString(), quantite: quantcontroller.text)));
               print(ProduitState);

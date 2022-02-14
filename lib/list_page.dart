@@ -102,17 +102,15 @@ child: Text("Ajouter produit"),
       
           body: SingleChildScrollView(
 
-            child:BlocConsumer<ProduitBloc,List<ProduitState>>(
-       listener: (context, state) {
-        // TODO: implement listener
-      },
-      builder: (context, produitlist) {
+            child:BlocBuilder<ProduitBloc,List<ProduitState>>(
+       
+      builder: (context, produit) {
               return Center(
                 child: Column(children: [
                  Container(
                    height: MediaQuery.of(context).size.height ,
                    child: ListView.builder(
-                     
+                     itemCount: produit.length,
                      itemBuilder: (context, index){
                        return Card(
                          
@@ -121,29 +119,20 @@ child: Text("Ajouter produit"),
                           Navigator.push( context,    MaterialPageRoute(
                                builder: (BuildContext context) => 
                                
-                               produit_page(produitlist: produitlist[index], ind: index,),
+                               produit_page(produitlist: produit[index], ind: index,),
                                ),
                                     );
                                    },
                            
                            title: Text(' #  Produit : '+ (index ).toString(),
                            style: TextStyle(color: Colors.black, fontSize: 20, 
-                           fontWeight: FontWeight.bold,
-                           
-                   ),
-                   
-                   
-                   
-                   ),
+                           fontWeight: FontWeight.bold,),  ),
                           
                         
                          ),
-            
-                         
-                           
                          );
                      },
-                     itemCount: produitlist.length,
+                     
                      ),
                  )
                 ],)

@@ -43,7 +43,7 @@ class _splash_screenState extends State<splash_screen> {
     super.initState();
     Timer(Duration (milliseconds: 4000 ), () =>  Navigator.push( context,    MaterialPageRoute(
                              builder: (context) => BlocProvider(
-                                    create: (_) => ProduitBloc(),
+                                    create: (context) => ProduitBloc(),
                                     child: list_page(),)
                                ),
                                   )
